@@ -5,10 +5,10 @@ import { FeedbackOptList, Button } from './FeedbackOptions.styled';
 export function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
     <FeedbackOptList>
-      {Object.keys(options).map(key => (
-        <li key={key}>
+      {options.map(item => (
+        <li key={item}>
           <Button type="button" onClick={onLeaveFeedback}>
-            {key}
+            {item}
           </Button>
         </li>
       ))}
@@ -17,6 +17,6 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
 }
 
 FeedbackOptions.protoTypes = {
-  options: PropTypes.shape({}).isRequired,
+  options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
